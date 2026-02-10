@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dejar reseña | José González Fisioterapia</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="bg-light">
+
+  <main class="container py-5" style="max-width: 640px;">
+    <div class="card shadow-lg border-0 rounded-4">
+      <div class="card-body p-4 p-md-5">
+
+        <h1 class="mb-3 text-primary">Dejar una reseña</h1>
+        <p class="text-muted mb-4">
+          Gracias por tomarte unos minutos para compartir tu experiencia.
+          Las reseñas se publican únicamente con autorización.
+        </p>
+
+        <!-- FORMULARIO NETLIFY -->
+        <form 
+          name="resenas"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+
+          <!-- Campo anti-bots -->
+          <input type="hidden" name="form-name" value="resenas">
+          <p hidden>
+            <label>No completar: <input name="bot-field"></label>
+          </p>
+
+          <!-- Nombre -->
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input 
+              type="text"
+              name="nombre"
+              class="form-control"
+              placeholder="Nombre o nombre de pila"
+            >
+          </div>
+
+          <!-- Reseña -->
+          <div class="mb-3">
+            <label class="form-label">Tu reseña *</label>
+            <textarea
+              name="resena"
+              class="form-control"
+              rows="4"
+              required
+              placeholder="Contanos brevemente cómo fue tu experiencia"
+            ></textarea>
+          </div>
+
+          <!-- Autorización -->
+          <div class="mb-4">
+            <label class="form-label">¿Autorizás a publicar esta reseña?</label>
+            <select name="autorizacion" class="form-select" required>
+              <option value="">Seleccionar</option>
+              <option value="Si con nombre">Sí, con mi nombre</option>
+              <option value="Solo nombre de pila">Sí, solo nombre de pila</option>
+              <option value="No publicar">Prefiero que no se publique</option>
+            </select>
+          </div>
+
+          <!-- Botón -->
+          <button type="submit" class="btn btn-primary btn-lg w-100">
+            Enviar reseña
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
