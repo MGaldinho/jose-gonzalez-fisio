@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "site"
+    label: "Contenido del sitio"
+    files:
+      - label: "Reseñas aprobadas"
+        name: "reviews"
+        file: "assets/data/reviews.json"
+        fields:
+          - label: "Reseñas"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.tag}}"
+            fields:
+              - { label: "Texto", name: "text", widget: "text" }
+              - { label: "Nombre", name: "name", widget: "string", required: false }
+              - { label: "Etiqueta", name: "tag", widget: "string", required: false }

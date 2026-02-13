@@ -33,12 +33,14 @@ async function loadReviews() {
     const res = await fetch("assets/data/reviews.json", { cache: "no-store" });
     if (!res.ok) throw new Error("No se pudo cargar reviews.json");
 
-    const reviews = await res.json();
+    const data = await res.json();
+    const reviews = Array.isArray(data) ? data : (data.items ?? []);
     container.innerHTML = "";
 
     reviews.slice(0, 9).forEach(r => {
       container.insertAdjacentHTML("beforeend", reviewCard(r));
     });
+
 
   } catch (e) {
     // fallback silencioso, no rompe la web
